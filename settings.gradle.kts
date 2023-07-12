@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TaipeiTour"
-include ':app'
+include(":app")
