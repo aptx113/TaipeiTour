@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.dante.taipeitour"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.dante.taipeitour"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -32,6 +32,11 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
