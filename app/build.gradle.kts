@@ -81,6 +81,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     androidTestImplementation(libs.androidx.navigation.testing)
 
+    implementation(libs.androidx.paging)
+
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.svg)
 
