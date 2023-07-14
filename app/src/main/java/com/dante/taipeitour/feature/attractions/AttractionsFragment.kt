@@ -1,4 +1,4 @@
-package com.dante.taipeitour.attractions
+package com.dante.taipeitour.feature.attractions
 
 import android.os.Bundle
 import android.view.LayoutInflater
