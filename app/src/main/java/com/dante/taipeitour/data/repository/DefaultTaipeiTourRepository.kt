@@ -6,11 +6,10 @@ import androidx.paging.PagingData
 import com.dante.taipeitour.data.remote.TaipeiTourApi
 import com.dante.taipeitour.data.remote.TaipeiTourPagingSource
 import com.dante.taipeitour.model.Attraction
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-@ViewModelScoped
+
 class DefaultTaipeiTourRepository @Inject constructor(private val api: TaipeiTourApi) :
     TaipeiTourRepository {
     override fun getAttractions(language: String): Flow<PagingData<Attraction>> {

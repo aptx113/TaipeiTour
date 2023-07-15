@@ -25,11 +25,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_placeholder" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title_txt"
-            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_12"
@@ -38,20 +38,22 @@
             android:maxLines="2"
             android:text="@{attraction.name}"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/indicator_img"
             app:layout_constraintStart_toEndOf="@id/cover_img"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cover_img"
             tools:text="Mountainuuuuuuuuuuuuuuuuuu" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/intro_txt"
-            style="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:ellipsize="end"
+            android:includeFontPadding="false"
             android:maxLines="2"
             android:text="@{attraction.introduction}"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@id/title_txt"
             app:layout_constraintStart_toStartOf="@id/title_txt"
             app:layout_constraintTop_toBottomOf="@id/title_txt"
@@ -59,7 +61,6 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/open_time_txt"
-            style="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_8"
@@ -67,7 +68,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{attraction.openTime}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/cover_img"
             app:layout_constraintEnd_toEndOf="@id/title_txt"
             app:layout_constraintStart_toStartOf="@id/title_txt"
             app:layout_constraintTop_toBottomOf="@id/intro_txt"
