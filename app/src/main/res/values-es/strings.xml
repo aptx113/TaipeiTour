@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TaipéiViaje</string>
+    <string name="view_details">Ver detalles</string>
+    <string name="retry">rever</string>
+    <string name="no_result_match">No result match</string>
 </resources>

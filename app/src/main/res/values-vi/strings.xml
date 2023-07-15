@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">du lịch Đài Bắc</string>
+    <string name="view_details">Xem chi tiết</string>
+    <string name="retry">thử lại</string>
+    <string name="no_result_match">No result match</string>
 </resources>
