@@ -48,13 +48,14 @@ dependencies {
     api(libs.androidx.test.ext)
     api(libs.androidx.test.rules)
     api(libs.androidx.test.runner)
+    api(libs.hilt.android.testing)
     api(libs.junit4)
     api(libs.kotlinx.coroutines.test)
     api(libs.truth)
     api(libs.turbine)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    kaptTest(libs.hilt.compiler)
     kaptAndroidTest(libs.hilt.compiler)
 
     implementation(project(":app"))

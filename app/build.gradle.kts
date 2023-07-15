@@ -18,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.dante.taipeitour.testing.TaipeiTourTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -72,7 +72,6 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-    androidTestImplementation(libs.hilt.android.testing)
     kaptAndroidTest(libs.hilt.compiler)
 
     implementation(libs.kotlin.stdlib)
@@ -96,6 +95,7 @@ dependencies {
     implementation(libs.retrofit.kotlin.serialization)
 
     testImplementation(project(":testing"))
+    androidTestImplementation(project(":testing"))
 }
 
 kapt {
