@@ -13,7 +13,7 @@ import javax.inject.Inject
 class AttractionsViewModel @Inject constructor(private val repository: TaipeiTourRepository) :
     ViewModel() {
 
-    val language = MutableStateFlow("zh_tw")
+    val language = MutableStateFlow("en")
 
     val attractions = language.flatMapLatest { language ->
         repository.getAttractions(language)
