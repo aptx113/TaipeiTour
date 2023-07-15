@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">TaipeiTour</string>
     <string name="view_details">View details</string>
+    <string name="retry">Retry</string>
+    <string name="no_result_match">No result match</string>
 </resources>

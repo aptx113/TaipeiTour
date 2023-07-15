@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
 import com.dante.taipeitour.databinding.FragAttractionsBinding
+import com.dante.taipeitour.ext.launchAndRepeatWithViewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -38,16 +39,30 @@ class AttractionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewDataBinding.recycler.adapter = pagingAdapter
+        viewDataBinding.recycler.adapter =
+            pagingAdapter.withLoadStateFooter(TaipeiTourLoadStateAdapter { pagingAdapter.retry() })
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch { viewModel.language.collectLatest { pagingAdapter.refresh() } }
-                launch {
-                    viewModel.attractions.collectLatest {
-                        pagingAdapter.submitData(it)
-                    }
+        launchAndRepeatWithViewLifecycle {
+            launch { viewModel.language.collectLatest { pagingAdapter.refresh() } }
+            launch {
+                viewModel.attractions.collectLatest {
+                    pagingAdapter.submitData(it)
                 }
+            }
+            collectPagingLoadState()
+        }
+    }
+
+    private fun CoroutineScope.collectPagingLoadState() = launch {
+        pagingAdapter.loadStateFlow.collectLatest { loadStates ->
+            val isListEmpty =
+                loadStates.refresh is LoadState.NotLoading && pagingAdapter.itemCount == 0
+            viewDataBinding.apply {
+                recycler.isVisible = loadStates.source.refresh is LoadState.NotLoading
+                emptyResultTxt.isVisible = isListEmpty
+                progressBar.isVisible = loadStates.source.refresh is LoadState.Loading
+                retryButton.isVisible = loadStates.source.refresh is LoadState.Error
+                retryButton.setOnClickListener { pagingAdapter.retry() }
             }
         }
     }
