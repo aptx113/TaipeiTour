@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.dante.taipeitour.databinding.FragAttractionsBinding
 import com.dante.taipeitour.ext.launchAndRepeatWithViewLifecycle
@@ -31,7 +32,7 @@ class AttractionsFragment : Fragment() {
         viewDataBinding = FragAttractionsBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
         }
-        pagingAdapter = AttractionAdapter()
+        pagingAdapter = AttractionAdapter { viewModel.onDetailsNavigated(it) }
 
         return viewDataBinding.root
     }
@@ -50,6 +51,13 @@ class AttractionsFragment : Fragment() {
                 }
             }
             collectPagingLoadState()
+            launch {
+                viewModel.navigateToDetailsAction.collectLatest { attraction ->
+                    val action =
+                        AttractionsFragmentDirections.toAttractionDetails(attraction)
+                    findNavController().navigate(action)
+                }
+            }
         }
     }
 
@@ -66,4 +74,5 @@ class AttractionsFragment : Fragment() {
             }
         }
     }
+
 }

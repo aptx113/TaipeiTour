@@ -5,7 +5,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.dante.taipeitour.model.Attraction
 
-class AttractionAdapter :
+class AttractionAdapter(private val onDetailsNavigated: (Attraction) -> Unit) :
     PagingDataAdapter<Attraction, AttractionViewHolder>(AttractionComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttractionViewHolder {
@@ -15,6 +15,9 @@ class AttractionAdapter :
     override fun onBindViewHolder(holder: AttractionViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            item?.let { onDetailsNavigated(it) }
+        }
     }
 
     object AttractionComparator : DiffUtil.ItemCallback<Attraction>() {

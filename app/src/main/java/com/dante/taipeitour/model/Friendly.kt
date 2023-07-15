@@ -10,4 +10,4 @@ data class Friendly(
     val id: Int,
     @SerialName("name")
     val name: String
-)
+) : java.io.Serializable

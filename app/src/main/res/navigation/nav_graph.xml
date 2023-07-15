@@ -9,5 +9,17 @@
         android:id="@+id/attractionsFragment"
         android:name="com.dante.taipeitour.feature.attractions.AttractionsFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/frag_attractions" />
+        tools:layout="@layout/frag_attractions" >
+        <action
+            android:id="@+id/to_attractionDetails"
+            app:destination="@id/attractionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionDetailsFragment"
+        android:name="com.dante.taipeitour.feature.attractiondetails.AttractionDetailsFragment"
+        android:label="AttractionDetailsFragment" >
+        <argument
+            android:name="attraction"
+            app:argType="com.dante.taipeitour.model.Attraction" />
+    </fragment>
 </navigation>
