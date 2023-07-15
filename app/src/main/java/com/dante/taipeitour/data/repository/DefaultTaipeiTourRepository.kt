@@ -15,7 +15,7 @@ class DefaultTaipeiTourRepository @Inject constructor(private val api: TaipeiTou
     TaipeiTourRepository {
     override fun getAttractions(language: String): Flow<PagingData<Attraction>> {
         return Pager(
-            config = PagingConfig(pageSize = 10),
+            config = PagingConfig(pageSize = 10, enablePlaceholders = false),
             pagingSourceFactory = { TaipeiTourPagingSource(api, language) }
         ).flow
     }

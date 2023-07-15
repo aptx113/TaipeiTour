@@ -5,6 +5,6 @@ import com.dante.taipeitour.model.AttractionResponse
 
 class TestApi : TaipeiTourApi {
     override suspend fun getAttractions(language: String, page: Int): AttractionResponse {
-        return AttractionResponse(total = 3, data = attractionsTestData)
+        return AttractionResponse(total = 1, data = attractionsTestData)
     }
 }

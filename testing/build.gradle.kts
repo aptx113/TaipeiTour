@@ -29,6 +29,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+        val warningsAsErrors: String? by project
+        allWarningsAsErrors = warningsAsErrors.toBoolean()
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-opt-in=kotlin.RequiresOptIn",
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=kotlinx.coroutines.FlowPreview",
+        )
     }
 }
 
