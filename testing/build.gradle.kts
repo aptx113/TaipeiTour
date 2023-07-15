@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -45,6 +43,8 @@ dependencies {
     api(libs.androidx.test.runner)
     api(libs.junit4)
     api(libs.kotlinx.coroutines.test)
+    api(libs.truth)
+    api(libs.turbine)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
