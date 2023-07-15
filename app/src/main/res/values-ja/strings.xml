@@ -3,5 +3,7 @@
     <string name="app_name">台北ツアー</string>
     <string name="view_details">詳細を見る</string>
     <string name="retry">リトライ</string>
-    <string name="no_result_match">No result match</string>
+    <string name="no_data_available">データなし</string>
+    <string name="address">住所\n%s</string>
+    <string name="last_updated_time">最終更新時間\n%s</string>
 </resources>

@@ -3,6 +3,8 @@
     <string name="app_name">Tur Taipei</string>
     <string name="view_details">Melihat rincian</string>
     <string name="retry">mencoba kembali</string>
-    <string name="no_result_match">No result match</string>
+    <string name="no_data_available">Tidak ada data yang tersedia</string>
+    <string name="address">Alamat\n%s</string>
+    <string name="last_updated_time">Waktu Pembaruan Terakhir\n%s</string>
 </resources>
 

@@ -3,5 +3,7 @@
     <string name="app_name">타이페이투어</string>
     <string name="view_details">세부 정보보기</string>
     <string name="retry">다시 해 보다</string>
-    <string name="no_result_match">No result match</string>
+    <string name="no_data_available">자료 없음</string>
+    <string name="address">주소\n%s</string>
+    <string name="last_updated_time">마지막 업데이트 시간\n%s</string>
 </resources>

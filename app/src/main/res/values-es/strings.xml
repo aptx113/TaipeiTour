@@ -3,5 +3,7 @@
     <string name="app_name">TaipéiViaje</string>
     <string name="view_details">Ver detalles</string>
     <string name="retry">rever</string>
-    <string name="no_result_match">No result match</string>
+    <string name="no_data_available">datos no disponibles</string>
+    <string name="address">DIRECCIÓN\n%s</string>
+    <string name="last_updated_time">Hora de última actualización\n%s</string>
 </resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="attraction"
+            type="com.dante.taipeitour.model.Attraction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cover_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@{attraction.name}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/img_placeholder" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/name_txt"
+                    style="@style/CustomTitle22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:text="@{attraction.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cover_img"
+                    tools:text="The Lin" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/intro_txt"
+                    style="@style/CustomBody14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="@{attraction.introduction}"
+                    app:layout_constraintEnd_toEndOf="@id/name_txt"
+                    app:layout_constraintStart_toStartOf="@id/name_txt"
+                    app:layout_constraintTop_toBottomOf="@id/name_txt"
+                    tools:text="yoyoyoyoyoyoyoyoyoyyooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/address_txt"
+                    style="@style/CustomBody14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="@{@string/address(attraction.address)}"
+                    app:layout_constraintEnd_toEndOf="@id/name_txt"
+                    app:layout_constraintStart_toStartOf="@id/name_txt"
+                    app:layout_constraintTop_toBottomOf="@id/intro_txt"
+                    tools:text="Address\nNo. 141" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/last_updated_time_txt"
+                    style="@style/CustomBody14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_24"
+                    android:text="@{@string/last_updated_time(attraction.modified)}"
+                    app:layout_constraintEnd_toEndOf="@id/name_txt"
+                    app:layout_constraintStart_toStartOf="@id/name_txt"
+                    app:layout_constraintTop_toBottomOf="@id/address_txt"
+                    tools:text="Last Updated Time\n2023-07-15" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/official_site_txt"
+                    style="@style/CustomBody14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_24"
+                    android:text="@{attraction.officialSite}"
+                    app:layout_constraintEnd_toEndOf="@id/name_txt"
+                    app:layout_constraintStart_toStartOf="@id/name_txt"
+                    app:layout_constraintTop_toBottomOf="@id/last_updated_time_txt"
+                    tools:text="https://www" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
