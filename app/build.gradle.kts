@@ -61,7 +61,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.androidx.fragment.ktx)
-    debugImplementation(libs.androidx.fragment.testing)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
@@ -70,7 +69,6 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.android)
-    testImplementation(libs.kotlinx.coroutines.test)
     implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.serialization.json)
 
@@ -79,7 +77,6 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    androidTestImplementation(libs.androidx.navigation.testing)
 
     implementation(libs.androidx.paging)
 
@@ -89,14 +86,6 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.kotlin.serialization)
-
-    testImplementation(libs.junit4)
-
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(libs.androidx.test.ext)
-    androidTestImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.androidx.test.runner)
 }
 
 kapt {
