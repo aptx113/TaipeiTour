@@ -2,6 +2,8 @@ package com.dante.taipeitour
 
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -38,6 +40,55 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.localization_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+        return when (item.itemId) {
+            R.id.zh_tw -> {
+                true
+            }
+
+            R.id.zh_cn -> {
+                true
+            }
+
+            R.id.en -> {
+                true
+            }
+
+            R.id.ja -> {
+                true
+            }
+
+            R.id.ko -> {
+                true
+            }
+
+            R.id.es -> {
+                true
+            }
+
+            R.id.id -> {
+                true
+            }
+
+            R.id.th -> {
+                true
+            }
+
+            R.id.vi -> {
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     @Suppress("DEPRECATION")
     private fun setOnDestinationChangedListener() {
