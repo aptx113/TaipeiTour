@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -8,6 +9,10 @@
         <variable
             name="attraction"
             type="com.dante.taipeitour.model.Attraction" />
+
+        <variable
+            name="decoration"
+            type="androidx.recyclerview.widget.RecyclerView.ItemDecoration" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,14 +27,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/cover_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@{attraction.name}"
-                    android:scaleType="centerCrop"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/details_gallery_recycler"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_detail_gallery"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/img_placeholder" />
+                    tools:listitem="@layout/item_details_gallery" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/details_circles_recycler"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_8"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginBottom="@dimen/space_16"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="@id/details_gallery_recycler"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    bind:addDecoration="@{decoration}"
+                    tools:listitem="@layout/item_details_circle" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/name_txt"
@@ -41,7 +62,7 @@
                     android:text="@{attraction.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cover_img"
+                    app:layout_constraintTop_toBottomOf="@id/details_gallery_recycler"
                     tools:text="The Lin" />
 
                 <com.google.android.material.textview.MaterialTextView

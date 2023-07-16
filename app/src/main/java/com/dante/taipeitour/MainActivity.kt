@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.dante.taipeitour.common.attractionKey
 import com.dante.taipeitour.databinding.ActivityMainBinding
 import com.dante.taipeitour.model.Attraction
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,9 +44,9 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.attractionDetailsFragment -> {
                     val name = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        bundle?.getSerializable("attraction", Attraction::class.java)
+                        bundle?.getSerializable(attractionKey, Attraction::class.java)
                     } else {
-                        bundle?.getSerializable("attraction") as? Attraction
+                        bundle?.getSerializable(attractionKey) as? Attraction
                     }
                     name?.let {
                         supportActionBar?.title = it.name
