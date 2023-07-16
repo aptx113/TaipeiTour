@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.dante.taipeitour.databinding.FragAttractionsBinding
@@ -21,7 +21,7 @@ class AttractionsFragment : Fragment() {
 
     private lateinit var viewDataBinding: FragAttractionsBinding
     private lateinit var pagingAdapter: AttractionAdapter
-    private val viewModel by viewModels<AttractionsViewModel>()
+    private val viewModel by activityViewModels<AttractionsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,9 +44,13 @@ class AttractionsFragment : Fragment() {
             pagingAdapter.withLoadStateFooter(TaipeiTourLoadStateAdapter { pagingAdapter.retry() })
 
         launchAndRepeatWithViewLifecycle {
-            launch { viewModel.language.collectLatest { pagingAdapter.refresh() } }
             launch {
-                viewModel.attractions.collectLatest {
+                viewModel.selectedLanguage.collectLatest {
+                    viewModel.fetchAttractions(it)
+                }
+            }
+            launch {
+                viewModel.attractionsPagingData.collectLatest {
                     pagingAdapter.submitData(it)
                 }
             }

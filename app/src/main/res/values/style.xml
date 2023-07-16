@@ -14,5 +14,6 @@
 
     <style name="CustomOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_translate</item>
+        <item name="android:tint">?attr/colorOnSecondaryContainer</item>
     </style>
 </resources>

@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/attractionOfficialSiteFragment"
-        android:name="com.dante.taipeitour.feature.AttractionOfficialSiteFragment"
+        android:name="com.dante.taipeitour.feature.attractionofficialsite.AttractionOfficialSiteFragment"
         android:label="AttractionOfficialSiteFragment"
         tools:layout="@layout/frag_attraction_official_site">
         <argument

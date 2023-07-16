@@ -4,15 +4,28 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.dante.taipeitour.common.attractionKey
+import com.dante.taipeitour.common.en
+import com.dante.taipeitour.common.es
+import com.dante.taipeitour.common.id
+import com.dante.taipeitour.common.ja
+import com.dante.taipeitour.common.ko
 import com.dante.taipeitour.common.nameKey
+import com.dante.taipeitour.common.th
+import com.dante.taipeitour.common.vi
+import com.dante.taipeitour.common.zhCn
+import com.dante.taipeitour.common.zhTw
 import com.dante.taipeitour.databinding.ActivityMainBinding
+import com.dante.taipeitour.feature.attractions.AttractionsViewModel
 import com.dante.taipeitour.model.Attraction
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
+    private val sharedViewModel by viewModels<AttractionsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,52 +56,59 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.localization_menu, menu)
-        return true
+        return if (navController.currentDestination?.id == R.id.attractionsFragment) {
+            inflater.inflate(R.menu.localization_menu, menu)
+            true
+        } else {
+            false
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-
-        return when (item.itemId) {
+        val languageTag = when (item.itemId) {
             R.id.zh_tw -> {
-                true
+                zhTw
             }
 
             R.id.zh_cn -> {
-                true
+                zhCn
             }
 
             R.id.en -> {
-                true
+                en
             }
 
             R.id.ja -> {
-                true
+                ja
             }
 
             R.id.ko -> {
-                true
+                ko
             }
 
             R.id.es -> {
-                true
+                es
             }
 
             R.id.id -> {
-                true
+                id
             }
 
             R.id.th -> {
-                true
+                th
             }
 
             R.id.vi -> {
-                true
+                vi
             }
 
-            else -> super.onOptionsItemSelected(item)
+            else -> sharedViewModel.selectedLanguage.value
         }
+        val appLocale = LocaleListCompat.forLanguageTags(languageTag)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+        sharedViewModel.onLanguageSelected(languageTag)
+        return super.onOptionsItemSelected(item)
     }
 
     @Suppress("DEPRECATION")
@@ -114,6 +135,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = getString(R.string.app_name)
                 }
             }
+            invalidateOptionsMenu()
         }
     }
 }
