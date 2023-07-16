@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -49,6 +50,14 @@ class AttractionDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupDetailGalleryRecycler()
         viewDataBinding.detailsCirclesRecycler.adapter = circleAdapter
+        viewDataBinding.officialSiteTxt.setOnClickListener {
+            val action =
+                AttractionDetailsFragmentDirections.toAttractionOfficialSite(
+                    args.attraction.officialSite,
+                    args.attraction.name
+                )
+            findNavController().navigate(action)
+        }
         launchAndRepeatWithViewLifecycle {
             collectAttraction()
             collectSnapPosition()
@@ -70,6 +79,7 @@ class AttractionDetailsFragment : Fragment() {
             viewDataBinding.detailsGalleryRecycler.scrollToPosition(attraction.images.size * 100)
 
             viewModel.snapPosition.collect {
+                if (attraction.images.isEmpty()) return@collect
                 viewModel.setSelectedPosition(it % attraction.images.size)
             }
         }

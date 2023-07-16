@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.dante.taipeitour.common.attractionKey
+import com.dante.taipeitour.common.nameKey
 import com.dante.taipeitour.databinding.ActivityMainBinding
 import com.dante.taipeitour.model.Attraction
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,14 +44,19 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, bundle ->
             when (destination.id) {
                 R.id.attractionDetailsFragment -> {
-                    val name = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    val attraction = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         bundle?.getSerializable(attractionKey, Attraction::class.java)
                     } else {
                         bundle?.getSerializable(attractionKey) as? Attraction
                     }
-                    name?.let {
+                    attraction?.let {
                         supportActionBar?.title = it.name
                     }
+                }
+
+                R.id.attractionOfficialSiteFragment -> {
+                    val name = bundle?.getString(nameKey)
+                    supportActionBar?.title = name
                 }
 
                 else -> {

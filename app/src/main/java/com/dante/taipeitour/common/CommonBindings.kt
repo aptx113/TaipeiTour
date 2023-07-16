@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -55,4 +56,10 @@ fun RecyclerView.bindsAddDecoration(decoration: ItemDecoration?) {
     decoration?.let {
         addItemDecoration(it)
     }
+}
+
+@BindingAdapter("url")
+fun TextView.setUnderline(url: String?) {
+    paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
+    text = url
 }

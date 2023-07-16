@@ -9,7 +9,7 @@
         android:id="@+id/attractionsFragment"
         android:name="com.dante.taipeitour.feature.attractions.AttractionsFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/frag_attractions" >
+        tools:layout="@layout/frag_attractions">
         <action
             android:id="@+id/to_attractionDetails"
             app:destination="@id/attractionDetailsFragment" />
@@ -17,9 +17,25 @@
     <fragment
         android:id="@+id/attractionDetailsFragment"
         android:name="com.dante.taipeitour.feature.attractiondetails.AttractionDetailsFragment"
-        android:label="AttractionDetailsFragment" >
+        android:label="AttractionDetailsFragment"
+        tools:layout="@layout/frag_attraction_details">
         <argument
             android:name="attraction"
             app:argType="com.dante.taipeitour.model.Attraction" />
+        <action
+            android:id="@+id/to_attractionOfficialSite"
+            app:destination="@id/attractionOfficialSiteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionOfficialSiteFragment"
+        android:name="com.dante.taipeitour.feature.AttractionOfficialSiteFragment"
+        android:label="AttractionOfficialSiteFragment"
+        tools:layout="@layout/frag_attraction_official_site">
+        <argument
+            android:name="webUrl"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
 </navigation>

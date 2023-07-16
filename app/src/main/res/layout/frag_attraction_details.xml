@@ -7,6 +7,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.dante.taipeitour.feature.attractiondetails.AttractionDetailsViewModel" />
+
+        <variable
             name="attraction"
             type="com.dante.taipeitour.model.Attraction" />
 
@@ -101,16 +105,20 @@
                     app:layout_constraintTop_toBottomOf="@id/address_txt"
                     tools:text="Last Updated Time\n2023-07-15" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/official_site_txt"
                     style="@style/CustomBody14"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_24"
-                    android:text="@{attraction.officialSite}"
+                    android:layout_marginBottom="@dimen/space_16"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/name_txt"
                     app:layout_constraintStart_toStartOf="@id/name_txt"
                     app:layout_constraintTop_toBottomOf="@id/last_updated_time_txt"
+                    app:layout_constraintVertical_bias="0.0"
+                    bind:url="@{attraction.officialSite}"
                     tools:text="https://www" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
