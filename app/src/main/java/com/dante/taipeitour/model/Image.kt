@@ -12,4 +12,4 @@ data class Image(
     val subject: String,
     @SerialName("ext")
     val ext: String
-)
+) : java.io.Serializable

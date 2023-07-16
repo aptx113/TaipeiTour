@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dante.taipeitour.feature.attractiondetails.AttractionDetailsViewModel" />
+
+        <variable
+            name="adapterPosition"
+            type="Integer" />
+
+        <variable
+            name="isSelected"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/details_circle_layout"
+        android:layout_width="@dimen/space_8"
+        android:layout_height="@dimen/space_8">
+
+        <ImageView
+            android:id="@+id/details_circle_image"
+            android:layout_width="@dimen/space_8"
+            android:layout_height="@dimen/space_8"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:circleStatus="@{viewModel.selectedPosition == adapterPosition}"
+            tools:src="@drawable/img_placeholder" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

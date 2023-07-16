@@ -64,4 +64,4 @@ data class Attraction(
     val files: List<File>,
     @SerialName("links")
     val links: List<Link>
-)
+) : java.io.Serializable

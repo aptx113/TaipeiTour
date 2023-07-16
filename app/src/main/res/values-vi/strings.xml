@@ -3,5 +3,7 @@
     <string name="app_name">du lịch Đài Bắc</string>
     <string name="view_details">Xem chi tiết</string>
     <string name="retry">thử lại</string>
-    <string name="no_result_match">No result match</string>
+    <string name="no_data_available">không có dữ liệu</string>
+    <string name="address">Địa chỉ\n%s</string>
+    <string name="last_updated_time">Thời gian cập nhật lần cuối\n%s</string>
 </resources>

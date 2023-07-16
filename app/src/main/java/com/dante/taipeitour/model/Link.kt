@@ -10,4 +10,4 @@ data class Link(
     val src: String,
     @SerialName("subject")
     val subject: String
-)
+) : java.io.Serializable
