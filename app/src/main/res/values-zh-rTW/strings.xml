@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">臺北行</string>
+    <string name="view_details">查看詳情</string>
+    <string name="retry">重試</string>
+    <string name="no_data_available">沒有資料</string>
+    <string name="address">地址\n%s</string>
+    <string name="last_updated_time">最後更新時間\n%s</string>
+    <string name="open_time">開放時間\n%s</string>
 </resources>

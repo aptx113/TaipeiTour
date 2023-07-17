@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">台北ツアー</string>
+    <string name="view_details">詳細を見る</string>
+    <string name="retry">リトライ</string>
+    <string name="no_data_available">データなし</string>
+    <string name="address">住所\n%s</string>
+    <string name="last_updated_time">最終更新時間\n%s</string>
+    <string name="open_time">オープンタイム\n%s</string>
 </resources>

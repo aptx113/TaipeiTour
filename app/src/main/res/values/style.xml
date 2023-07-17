@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTitle22">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomBody14">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="CustomOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_translate</item>
+        <item name="android:tint">?attr/colorOnSecondaryContainer</item>
+    </style>
+    <style name="CustomActionBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+
+    </style>
+</resources>

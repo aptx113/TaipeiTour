@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ทัวร์ไทเป</string>
+    <string name="view_details">ดูรายละเอียด</string>
+    <string name="retry">ลองอีกครั้ง</string>
+    <string name="no_data_available">ไม่มีข้อมูลที่สามารถใช้ได้</string>
+    <string name="address">ที่อยู่\n%s</string>
+    <string name="last_updated_time">เวลาที่อัปเดตล่าสุด\n%s</string>
+    <string name="open_time">เวลาเปิด\n%s</string>
 </resources>

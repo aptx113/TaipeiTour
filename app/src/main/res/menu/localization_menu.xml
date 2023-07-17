@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/zh_tw"
+        android:title="@string/tradition_chinese" />
+    <item
+        android:id="@+id/zh_cn"
+        android:title="@string/simplified_chinese" />
+    <item
+        android:id="@+id/en"
+        android:title="@string/english" />
+    <item
+        android:id="@+id/ja"
+        android:title="@string/japanese" />
+    <item
+        android:id="@+id/ko"
+        android:title="@string/korean" />
+    <item
+        android:id="@+id/es"
+        android:title="@string/spanish" />
+    <item
+        android:id="@+id/id"
+        android:title="@string/idonesian" />
+    <item
+        android:id="@+id/th"
+        android:title="@string/thai" />
+    <item
+        android:id="@+id/vi"
+        android:title="@string/vietnamese" />
+
+</menu>
