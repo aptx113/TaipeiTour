@@ -6,4 +6,5 @@
     <string name="no_data_available">자료 없음</string>
     <string name="address">주소\n%s</string>
     <string name="last_updated_time">마지막 업데이트 시간\n%s</string>
+    <string name="open_time">오픈 시간\n%s</string>
 </resources>
