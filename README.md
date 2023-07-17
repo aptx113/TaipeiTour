@@ -36,6 +36,8 @@ TaipeiTour is a sample tour application based on modern Android application tech
       behavior based on the current lifecycle state of an activity or fragment.
     - [Navigation](https://developer.android.com/guide/navigation) - Navigate across, into, and back
       out from the different pieces of content within the app.
+    - [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - To
+      load and display pages of data from a larger dataset.
     - [Recyclerview](https://developer.android.com/guide/topics/ui/layout/recyclerview) - Use to
       efficiently display large sets of data.
 - Third Party Library
@@ -56,4 +58,5 @@ TaipeiTour is a sample tour application based on modern Android application tech
 
 ## Open API
 
-TaipeiTour using the [Taipei travel API](https://www.travel.taipei/open-api/swagger/ui/index#/) for obtaining remote data.
+TaipeiTour using the [Taipei travel API](https://www.travel.taipei/open-api/swagger/ui/index#/) for
+obtaining remote data.
