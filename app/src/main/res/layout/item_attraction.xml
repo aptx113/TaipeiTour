@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -8,6 +9,10 @@
         <variable
             name="attraction"
             type="com.dante.taipeitour.model.Attraction" />
+
+        <variable
+            name="url"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +31,7 @@
             app:layout_constraintDimensionRatio="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{url}"
             tools:src="@drawable/img_placeholder" />
 
         <com.google.android.material.textview.MaterialTextView

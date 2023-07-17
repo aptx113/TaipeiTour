@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.dante.taipeitour.R
-import com.dante.taipeitour.common.bindsImage
 import com.dante.taipeitour.databinding.ItemAttractionBinding
 import com.dante.taipeitour.model.Attraction
 
@@ -17,7 +16,7 @@ class AttractionViewHolder(private val viewDataBinding: ItemAttractionBinding) :
             viewDataBinding.coverImg.setImageResource(R.drawable.img_placeholder)
             return
         }
-        viewDataBinding.coverImg.bindsImage(attraction.images[0].src)
+        viewDataBinding.url = attraction.images[0].src
         viewDataBinding.executePendingBindings()
     }
 
