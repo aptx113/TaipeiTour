@@ -6,4 +6,5 @@
     <string name="no_data_available">无数据</string>
     <string name="address">地址\n%s</string>
     <string name="last_updated_time">最后更新时间\n%s</string>
+    <string name="open_time">开放时间\n%s</string>
 </resources>

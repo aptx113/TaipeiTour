@@ -6,4 +6,5 @@
     <string name="no_data_available">không có dữ liệu</string>
     <string name="address">Địa chỉ\n%s</string>
     <string name="last_updated_time">Thời gian cập nhật lần cuối\n%s</string>
+    <string name="open_time">thời gian mở\n%s</string>
 </resources>

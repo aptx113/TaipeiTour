@@ -6,4 +6,5 @@
     <string name="no_data_available">データなし</string>
     <string name="address">住所\n%s</string>
     <string name="last_updated_time">最終更新時間\n%s</string>
+    <string name="open_time">オープンタイム\n%s</string>
 </resources>

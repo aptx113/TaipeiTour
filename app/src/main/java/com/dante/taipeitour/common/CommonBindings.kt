@@ -13,7 +13,7 @@ import coil.load
 import com.dante.taipeitour.R
 
 @BindingAdapter("imageUrl")
-fun ImageView.bindsImage(imageUrl: String) {
+fun ImageView.bindsImage(imageUrl: String?) {
     load(imageUrl) {
         crossfade(true)
         placeholder(R.drawable.img_placeholder)

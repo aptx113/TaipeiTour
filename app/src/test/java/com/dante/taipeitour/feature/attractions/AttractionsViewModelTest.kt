@@ -26,7 +26,8 @@ class AttractionsViewModelTest {
 
     @Test
     fun collect_attractions_returnsPagingDataOfAttraction() = runTest {
-        val snapshot = viewModel.attractions.asSnapshot()
+        viewModel.fetchAttractions("en")
+        val snapshot = viewModel.attractionsPagingData.asSnapshot()
         assert(snapshot == attractionsTestData)
     }
 }

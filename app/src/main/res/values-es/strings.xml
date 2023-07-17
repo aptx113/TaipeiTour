@@ -6,4 +6,5 @@
     <string name="no_data_available">datos no disponibles</string>
     <string name="address">DIRECCIÓN\n%s</string>
     <string name="last_updated_time">Hora de última actualización\n%s</string>
+    <string name="open_time">tiempo abierto\n%s</string>
 </resources>
