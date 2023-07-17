@@ -9,10 +9,6 @@
         <variable
             name="attraction"
             type="com.dante.taipeitour.model.Attraction" />
-
-        <variable
-            name="url"
-            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +27,7 @@
             app:layout_constraintDimensionRatio="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            bind:imageUrl="@{url}"
+            bind:imageUrl="@{attraction.coverImageUrl}"
             tools:src="@drawable/img_placeholder" />
 
         <com.google.android.material.textview.MaterialTextView

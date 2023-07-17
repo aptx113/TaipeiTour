@@ -14,19 +14,19 @@ class AttractionAdapter(private val onDetailsNavigated: (Attraction) -> Unit) :
 
     override fun onBindViewHolder(holder: AttractionViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
         holder.itemView.setOnClickListener {
             item?.let { onDetailsNavigated(it) }
         }
+        holder.bind(item)
     }
 
     object AttractionComparator : DiffUtil.ItemCallback<Attraction>() {
         override fun areItemsTheSame(oldItem: Attraction, newItem: Attraction): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.id == newItem.id && oldItem.images == newItem.images
         }
 
         override fun areContentsTheSame(oldItem: Attraction, newItem: Attraction): Boolean {
-            return oldItem == newItem && oldItem.elong == newItem.elong && oldItem.nlat == newItem.nlat
+            return oldItem.elong == newItem.elong && oldItem.nlat == newItem.nlat && oldItem.images == newItem.images
         }
     }
 }

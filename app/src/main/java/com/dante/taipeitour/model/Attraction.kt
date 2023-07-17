@@ -63,5 +63,9 @@ data class Attraction(
     @SerialName("files")
     val files: List<File>,
     @SerialName("links")
-    val links: List<Link>
+    val links: List<Link>,
+
+    val coverImageUrl: String? = if (images.isNotEmpty()) {
+        images[0].src
+    } else null
 ) : java.io.Serializable
