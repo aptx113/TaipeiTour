@@ -20,6 +20,9 @@ import com.dante.taipeitour.common.id
 import com.dante.taipeitour.common.ja
 import com.dante.taipeitour.common.ko
 import com.dante.taipeitour.common.nameKey
+import com.dante.taipeitour.common.systemChinesePrefix
+import com.dante.taipeitour.common.systemEnglishPrefix
+import com.dante.taipeitour.common.systemIndonesianTag
 import com.dante.taipeitour.common.th
 import com.dante.taipeitour.common.vi
 import com.dante.taipeitour.common.zhCn
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
         setOnDestinationChangedListener()
+        initializeAppLanguage()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -137,5 +141,17 @@ class MainActivity : AppCompatActivity() {
             }
             invalidateOptionsMenu()
         }
+    }
+
+    private fun initializeAppLanguage() {
+        val currentLocaleName = this.resources.configuration.locales[0].toLanguageTag()
+        val transformedLocalName = when {
+            currentLocaleName.contains(systemChinesePrefix, true) -> currentLocaleName.lowercase()
+            currentLocaleName.contains(systemEnglishPrefix, true) -> en
+            currentLocaleName.contains(systemIndonesianTag, true) -> id
+            currentLocaleName == ja || currentLocaleName == ko || currentLocaleName == es || currentLocaleName == th || currentLocaleName == vi -> currentLocaleName
+            else -> en
+        }
+        sharedViewModel.onLanguageSelected(transformedLocalName)
     }
 }

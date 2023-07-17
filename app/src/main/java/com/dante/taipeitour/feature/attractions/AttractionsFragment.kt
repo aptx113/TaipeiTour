@@ -45,7 +45,7 @@ class AttractionsFragment : Fragment() {
 
         launchAndRepeatWithViewLifecycle {
             launch {
-                viewModel.selectedLanguage.collectLatest {
+                viewModel.selectedLanguage.collect {
                     viewModel.fetchAttractions(it)
                 }
             }

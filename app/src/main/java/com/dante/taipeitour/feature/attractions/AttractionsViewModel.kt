@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.dante.taipeitour.common.en
 import com.dante.taipeitour.data.repository.TaipeiTourRepository
 import com.dante.taipeitour.model.Attraction
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,7 @@ import javax.inject.Inject
 class AttractionsViewModel @Inject constructor(private val repository: TaipeiTourRepository) :
     ViewModel() {
 
-    private val _selectedLanguage = MutableStateFlow("en")
+    private val _selectedLanguage = MutableStateFlow(en)
     val selectedLanguage = _selectedLanguage.asStateFlow()
 
     private val _attractionsPagingData =

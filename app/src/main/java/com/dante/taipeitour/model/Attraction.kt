@@ -33,9 +33,9 @@ data class Attraction(
     @SerialName("months")
     val months: String,
     @SerialName("nlat")
-    val nlat: Double,
+    val nlat: Double?,
     @SerialName("elong")
-    val elong: Double,
+    val elong: Double?,
     @SerialName("official_site")
     val officialSite: String,
     @SerialName("facebook")
